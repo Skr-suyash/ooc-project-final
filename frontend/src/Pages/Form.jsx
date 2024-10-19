@@ -1,178 +1,129 @@
 import * as React from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
+import Button from "@mui/material/Button";
+
+const currencies = [
+  {
+    value: "USD",
+    label: "$",
+  },
+  {
+    value: "EUR",
+    label: "€",
+  },
+  {
+    value: "BTC",
+    label: "฿",
+  },
+  {
+    value: "JPY",
+    label: "¥",
+  },
+];
 
 export default function Forms() {
+  // State to hold form values
+  const [formData, setFormData] = useState({
+    name: "",
+    number: "",
+    type: "",
+    city: "",
+    role: "",
+    currency: "EUR",
+  });
+
+  // Handle input change
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent form from refreshing
+    console.log("Form Data Submitted:", formData);
+  };
+
   return (
     <Box
       component="form"
       sx={{ "& .MuiTextField-root": { m: 1, width: "25ch" } }}
       noValidate
       autoComplete="off"
+      onSubmit={handleSubmit}
     >
+      <TextField
+        required
+        name="name"
+        label="Name"
+        value={formData.name}
+        onChange={handleInputChange}
+      />
+      <TextField
+        required
+        name="number"
+        label="Number"
+        value={formData.number}
+        onChange={handleInputChange}
+      />
+      <TextField
+        required
+        name="type"
+        label="Type"
+        value={formData.type}
+        onChange={handleInputChange}
+      />
+      <TextField
+        required
+        name="city"
+        label="City"
+        value={formData.city}
+        onChange={handleInputChange}
+      />
+      <TextField
+        required
+        name="role"
+        label="Role"
+        value={formData.role}
+        onChange={handleInputChange}
+      />
+      <TextField
+        name="search"
+        label="Search field"
+        type="search"
+        value={formData.search}
+        onChange={handleInputChange}
+      />
       <div>
         <TextField
-          required
-          id="outlined-required"
-          label="Required"
-          defaultValue="Hello World"
-        />
-        <TextField
-          disabled
-          id="outlined-disabled"
-          label="Disabled"
-          defaultValue="Hello World"
-        />
-        <TextField
-          id="outlined-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-        />
-        <TextField
-          id="outlined-read-only-input"
-          label="Read Only"
-          defaultValue="Hello World"
-          slotProps={{
-            input: {
-              readOnly: true,
-            },
-          }}
-        />
-        <TextField
-          id="outlined-number"
-          label="Number"
-          type="number"
-          slotProps={{
-            inputLabel: {
-              shrink: true,
-            },
-          }}
-        />
-        <TextField id="outlined-search" label="Search field" type="search" />
-        <TextField
-          id="outlined-helperText"
-          label="Helper text"
-          defaultValue="Default Value"
-          helperText="Some important text"
-        />
+          name="currency"
+          select
+          label="Select Currency"
+          value={formData.currency}
+          onChange={handleInputChange}
+          helperText="Please select your currency"
+        >
+          {currencies.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
       </div>
-      <div>
-        <TextField
-          required
-          id="filled-required"
-          label="Required"
-          defaultValue="Hello World"
-          variant="filled"
-        />
-        <TextField
-          disabled
-          id="filled-disabled"
-          label="Disabled"
-          defaultValue="Hello World"
-          variant="filled"
-        />
-        <TextField
-          id="filled-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-          variant="filled"
-        />
-        <TextField
-          id="filled-read-only-input"
-          label="Read Only"
-          defaultValue="Hello World"
-          variant="filled"
-          slotProps={{
-            input: {
-              readOnly: true,
-            },
-          }}
-        />
-        <TextField
-          id="filled-number"
-          label="Number"
-          type="number"
-          variant="filled"
-          slotProps={{
-            inputLabel: {
-              shrink: true,
-            },
-          }}
-        />
-        <TextField
-          id="filled-search"
-          label="Search field"
-          type="search"
-          variant="filled"
-        />
-        <TextField
-          id="filled-helperText"
-          label="Helper text"
-          defaultValue="Default Value"
-          helperText="Some important text"
-          variant="filled"
-        />
-      </div>
-      <div>
-        <TextField
-          required
-          id="standard-required"
-          label="Required"
-          defaultValue="Hello World"
-          variant="standard"
-        />
-        <TextField
-          disabled
-          id="standard-disabled"
-          label="Disabled"
-          defaultValue="Hello World"
-          variant="standard"
-        />
-        <TextField
-          id="standard-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-          variant="standard"
-        />
-        <TextField
-          id="standard-read-only-input"
-          label="Read Only"
-          defaultValue="Hello World"
-          variant="standard"
-          slotProps={{
-            input: {
-              readOnly: true,
-            },
-          }}
-        />
-        <TextField
-          id="standard-number"
-          label="Number"
-          type="number"
-          variant="standard"
-          slotProps={{
-            inputLabel: {
-              shrink: true,
-            },
-          }}
-        />
-        <TextField
-          id="standard-search"
-          label="Search field"
-          type="search"
-          variant="standard"
-        />
-        <TextField
-          id="standard-helperText"
-          label="Helper text"
-          defaultValue="Default Value"
-          helperText="Some important text"
-          variant="standard"
-        />
-      </div>
+      <Button
+        variant="contained"
+        color="primary"
+        type="submit"
+        sx={{ mt: 2 }} // Add some margin to the top
+      >
+        Submit
+      </Button>
     </Box>
   );
 }
