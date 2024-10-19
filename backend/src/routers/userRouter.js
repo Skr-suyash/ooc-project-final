@@ -162,4 +162,6 @@ router.get('/send-email', (req, res) => {
     });
 });
 
+/* Route to get ema */
+
 module.exports = router;
