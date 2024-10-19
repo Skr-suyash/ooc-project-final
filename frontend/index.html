@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error404</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    /* Video background styling */
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: 10;
+      object-fit: cover;
+      overflow: hidden;
+    }
+
+    /* Styling for your content that goes on top of the video */
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+
+    /* Ensure root takes up full height */
+    #root {
+      min-height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ensure the video path is correct -->
+  <video autoplay muted loop id="background-video" src="assets/bg.mp4">
+  </video>
+
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
+
