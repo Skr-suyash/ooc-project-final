@@ -7,9 +7,9 @@ const types = [
 
 const currencies = [
   { value: "Women's Beauty", label: "Women's Beauty" },
-  { value: "Men's Salon and Massage", label: "Men's Salon and Massage" },
+  { value: "Men's' Salon and Massage", label: "Men's Salon and Massage" },
   { value: "AC and Appliance Repair", label: "AC and Appliance Repair" },
-  { value: "Cleaning and Pest Control", label: "Cleaning and Pest Control" },
+  { value: "Cleaning", label: "Cleaning" },
   { value: "Electrician", label: "Electrician" },
   { value: "Plumber", label: "Plumber" },
   { value: "Carpenter", label: "Carpenter" },
@@ -25,7 +25,7 @@ export default function Forms() {
     email: "",
     city: "",
     type: "Professional",
-    role: "",
+    role: "Women's Beauty",
   });
 
   const handleInputChange = (e) => {
@@ -184,7 +184,7 @@ export default function Forms() {
               </label>
               <select
                 name="role"
-                value={formData.role}
+
                 onChange={handleInputChange}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 required

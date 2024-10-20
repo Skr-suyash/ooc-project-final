@@ -100,7 +100,7 @@ section.sec2 {
     left: 0;
     padding: 5px 20px;
     box-sizing: border-box;
-    z-index: 1;
+    z-index: 100;
   }
 
   .responsive-bar .logo img {

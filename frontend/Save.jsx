@@ -34,7 +34,7 @@ const Save = () => {
   }, []);
 
   return (
-    <div>
+    <div id="body">
       <video autoPlay loop muted src="./src/assets/bg.mp4"></video>
       <div id="main">
         <div id="page1">
@@ -54,10 +54,7 @@ const Save = () => {
                   href="/beauty
                 "
                 >
-                  <img
-                    src="./src/assets/WhatsApp Image 2024-10-20 at 5.09.53 AM (1).jpeg"
-                    alt="Beauty Service"
-                  />
+                  <img src="./src/assets/beauty.jpeg" alt="Beauty Service" />
                 </a>
               </div>
             </div>
@@ -67,11 +64,8 @@ const Save = () => {
                   <p className="date"></p>
                   <p className="title">Clean</p>
                 </div>
-                <a href="/clean">
-                  <img
-                    src="./src/assets/WhatsApp Image 2024-10-20 at 5.09.53 AM (2).jpeg"
-                    alt="Cleaning Service"
-                  />
+                <a href="/cleaning">
+                  <img src="./src/assets/cleaner.jpeg" alt="Cleaning Service" />
                 </a>
               </div>
             </div>
@@ -83,18 +77,20 @@ const Save = () => {
                 </div>
                 <a href="/electrician">
                   <img
-                    src="./src/assets/WhatsApp Image 2024-10-20 at 5.09.54 AM.jpeg"
+                    src="./src/assets/electrician.jpeg"
                     alt="Technician Service"
                   />
                 </a>
               </div>
             </div>
           </div>
-          <div id="ad">
-            <img
-              src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1698216901117-d92940.jpeg"
-              alt="Ad"
-            />
+          <div id="page3">
+            <div id="ad">
+              <img
+                src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1698216901117-d92940.jpeg"
+                alt="Ad"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -112,6 +108,10 @@ const Save = () => {
             width: 100%;
             height: 100%;
           }
+          #body{
+            width: 100%;
+            height: 100%;
+          }  
           #nav {
             height: 130px;
             width: 100%;
@@ -121,7 +121,7 @@ const Save = () => {
             padding: 0 100px;
             justify-content: flex-start;
             position: fixed;
-            z-index: 10;
+            z-index: 100 !important;
           }
           #nav-logo {
             height: 4.5vw;
@@ -168,8 +168,8 @@ const Save = () => {
           video {
             height: 100vh;
             width: 100vw;
-            object-fit:content;
-            position: fixed;
+            object-fit:cover;
+            position: absolute;
             z-index: -1;
           }
           #main {
@@ -274,6 +274,11 @@ const Save = () => {
             font-weight: 700;
             color: white;
           }
+          #page3{
+            height:100%;
+            width:100%;
+          }  
+
         `}
       </style>
     </div>

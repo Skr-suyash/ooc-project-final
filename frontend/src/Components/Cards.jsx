@@ -1,44 +1,52 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 
-const Cards = ({ data }) => {
+const Cards = ({ data, url }) => {
   return (
-    <div
-      className="cards-container"
-      style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}
-    >
+    <div className="flex flex-wrap justify-center gap-6 p-5">
       {data.length > 0 ? (
         data.map((item, index) => (
-          <Card key={index} sx={{ maxWidth: 345 }}>
-            <CardMedia
-              sx={{ height: 140 }}
-              image="/static/images/cards/contemplative-reptile.jpg" // Placeholder image, can replace with real image if available
-              title={item.role}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+          <div
+            key={index}
+            className="bg-white shadow-md rounded-lg max-w-xs w-full hover:shadow-lg transition-shadow duration-300"
+          >
+            {/* Image */}
+            <div className="h-32 bg-gray-200">
+              <img
+                src={
+                  
+                  "../assets/electrician.jpeg"
+                }
+                alt={item.role}
+                className="w-full h-full object-cover rounded-t-lg"
+              />
+            </div>
+
+            {/* Card Content */}
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 {item.role}
-              </Typography>
-              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              </h3>
+              <p className="text-gray-600">
                 Name: {item.name} <br />
                 Email: {item.email} <br />
                 Phone: {item.phone} <br />
                 City: {item.city}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
+              </p>
+            </div>
+
+            {/* Card Actions */}
+            <div className="p-4 border-t border-gray-200">
+              <button className="bg-blue-500 text-white py-1 px-3 rounded-md mr-2 hover:bg-blue-600 transition-colors">
+                Share
+              </button>
+              <button className="bg-gray-200 text-gray-700 py-1 px-3 rounded-md hover:bg-gray-300 transition-colors">
+                Learn More
+              </button>
+            </div>
+          </div>
         ))
       ) : (
-        <p>No data available</p>
+        <p className="text-gray-500 text-center">No data available</p>
       )}
     </div>
   );

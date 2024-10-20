@@ -7,7 +7,8 @@ import Electrician from "./Pages/Electrician.jsx";
 // import Plumber from "./Pages/Plumber.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Cleaning from "./Pages/Cleaning.jsx";
+import Beauty from "./Pages/Beauty.jsx";
 // Define your routes 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: "/electrician",
     element: <Electrician />,
+  },
+  {
+    path: "/cleaning",
+    element: <Cleaning />,
+  },
+  {
+    path: "/beauty",
+    element: <Beauty />,
   },
   // {
   //   path: "/plumber",
