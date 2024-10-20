@@ -35,6 +35,10 @@ router.get("/get-professional", async (req, res) => {
   }
 });
 
+router.get("/professional-dashboard", (req, res) => {
+  // let { email }
+}); 
+
 /* Route to get ema */
 
 module.exports = router;

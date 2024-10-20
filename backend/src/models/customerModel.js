@@ -5,11 +5,7 @@ const customerSchema = mongoose.Schema({
     "email": String,
     "phone": Number,
     "city": String,
-    "role": {
-        type: String,
-        enum: ['Customer', 'Professional'],
-        default: 'Customer',
-    },
+    "type": String,
 });
 
 const customerModel = mongoose.model("customer", customerSchema);
