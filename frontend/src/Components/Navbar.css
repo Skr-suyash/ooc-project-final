@@ -100,7 +100,7 @@ section.sec2 {
     left: 0;
     padding: 5px 20px;
     box-sizing: border-box;
-    z-index: 100;
+    z-index: 10;
   }
 
   .responsive-bar .logo img {
@@ -142,7 +142,7 @@ section.sec2 {
     background: #262626; /* Background for mobile menu */
     float: none;
     display: none;
-    z-index: 2; /* Ensures the menu is above other elements */
+    z-index: 1000; /* Ensures the menu is above other elements */
   }
 
   nav ul.active {

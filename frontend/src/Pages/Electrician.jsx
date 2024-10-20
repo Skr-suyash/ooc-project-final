@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar.jsx";
 import Footer from "../Components/Footer.jsx";
 import Cards from "../Components/Cards.jsx";
-
+import elecimg from "../assets/electrician.jpeg"
 const Electrician = () => {
   const [electricianData, setElectricianData] = useState([]); // Initialize state for fetched data
 
@@ -39,7 +39,7 @@ const Electrician = () => {
       <section
         className="py-5 text-center container background-image"
         style={{
-          height: "100vh",
+          height: "200vh",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -47,7 +47,7 @@ const Electrician = () => {
       >
         <Navbar />
         {/* Pass the fetched data as props to Cards component */}
-        <Cards data={electricianData} url='../assets/electrician.jpeg' />
+        <Cards data={electricianData} url={elecimg} />
       </section>
       <Footer />
     </div>

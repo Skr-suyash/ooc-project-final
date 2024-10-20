@@ -12,10 +12,7 @@ const Cards = ({ data, url }) => {
             {/* Image */}
             <div className="h-32 bg-gray-200">
               <img
-                src={
-                  
-                  "../assets/electrician.jpeg"
-                }
+                src={url}
                 alt={item.role}
                 className="w-full h-full object-cover rounded-t-lg"
               />
@@ -24,7 +21,7 @@ const Cards = ({ data, url }) => {
             {/* Card Content */}
             <div className="p-4">
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                {item.role}
+                {item.name} ({item.role}) 
               </h3>
               <p className="text-gray-600">
                 Name: {item.name} <br />
@@ -37,11 +34,9 @@ const Cards = ({ data, url }) => {
             {/* Card Actions */}
             <div className="p-4 border-t border-gray-200">
               <button className="bg-blue-500 text-white py-1 px-3 rounded-md mr-2 hover:bg-blue-600 transition-colors">
-                Share
+                Request
               </button>
-              <button className="bg-gray-200 text-gray-700 py-1 px-3 rounded-md hover:bg-gray-300 transition-colors">
-                Learn More
-              </button>
+              
             </div>
           </div>
         ))

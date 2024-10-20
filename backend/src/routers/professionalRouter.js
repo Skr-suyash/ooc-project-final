@@ -25,6 +25,16 @@ router.get("/get-professional/:role", async (req, res) => {
   }
 });
 
+router.get("/get-professional", async (req, res) => {
+  let { email } = req.params;
+  let user = await professionalModel.find({ email: email });
+  if (user) {
+    res.status(200).send(user);
+  } else {
+    res.status(404).send("User not found");
+  }
+});
+
 /* Route to get ema */
 
 module.exports = router;

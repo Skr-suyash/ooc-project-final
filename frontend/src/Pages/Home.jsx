@@ -4,18 +4,12 @@ import Save from "../../Save.jsx";
 const Home = () => {
   return (
     <div>
-      <section
-        className="py-5 text-center container background-image"
-        style={{
-          height: "200vh",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <Navbar />
+      
+        {/* <Navbar /> */}
+      
+      <div>
         <Save />
-      </section>
+      </div>
     </div>
   );
 };

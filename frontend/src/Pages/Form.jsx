@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const types = [
   { value: "Professional", label: "Professional" },
@@ -27,6 +28,8 @@ export default function Forms() {
     type: "Professional",
     role: "Women's Beauty",
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -64,6 +67,7 @@ export default function Forms() {
         type: "Professional",
         role: "",
       });
+      // navigate("/");
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -101,7 +105,6 @@ export default function Forms() {
                 required
               />
             </div>
-
             <div>
               <label
                 htmlFor="phone"
@@ -118,7 +121,6 @@ export default function Forms() {
                 required
               />
             </div>
-
             <div>
               <label
                 htmlFor="email"
@@ -135,7 +137,6 @@ export default function Forms() {
                 required
               />
             </div>
-
             <div>
               <label
                 htmlFor="city"
@@ -152,7 +153,6 @@ export default function Forms() {
                 required
               />
             </div>
-
             <div>
               <label
                 htmlFor="type"
@@ -174,28 +174,29 @@ export default function Forms() {
                 ))}
               </select>
             </div>
-
-            <div>
-              <label
-                htmlFor="role"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Role
-              </label>
-              <select
-                name="role"
-
-                onChange={handleInputChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                required
-              >
-                {currencies.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {formData.type !== "Customer" && (
+              <div>
+                <label
+                  htmlFor="role"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Role
+                </label>
+                <select
+                  name="role"
+                  value={formData.role} // Added value for controlled component
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  required
+                >
+                  {currencies.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
 
           {/* Tailwind-based Submit Button */}

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const Save = () => {
+  const navigate = useNavigate();
   React.useEffect(() => {
     // GSAP animations for navigation and main background color
     gsap.to("#nav", {
@@ -32,9 +34,60 @@ const Save = () => {
       },
     });
   }, []);
+  useEffect(() => {
+    if (isAuthenticated) {
+      // navigate("/form");
+    }
+  });
+  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
 
   return (
     <div id="body">
+      <div id="nav">
+        <img id="nav-logo" src="./src/assets/Pro.jpeg" />
+        <a href="/">
+          <h4>Home</h4>
+        </a>
+        <a href="/form">
+          <h4>Register Form</h4>
+        </a>
+        <a href="/about">
+          <h4>About</h4>
+        </a>
+        <a href="/contact">
+          <h4>Contact Us</h4>
+        </a>
+
+        {isAuthenticated ? (
+          <h3>
+            <button
+              className="items-end text-white bg-purple-500 hover:bg-purple-8=600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
+              onClick={() => logout({ returnTo: window.location.origin })}
+              style={{ marginBottom: "20px" }}
+            >
+              Log out
+            </button>
+          </h3>
+        ) : (
+          <h3>
+            <button
+              className="items-end text-white bg-purple-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              onClick={() => loginWithRedirect()}
+              style={{ marginBottom: "20px" }}
+            >
+              Log In
+            </button>
+          </h3>
+        )}
+        <img
+          id="profile"
+          src={
+            user && user.picture ? user.picture : "./src/assets/profile.jpeg"
+          }
+          alt="profile"
+        />
+      </div>
+
       <video autoPlay loop muted src="./src/assets/bg.mp4"></video>
       <div id="main">
         <div id="page1">
@@ -145,26 +198,39 @@ const Save = () => {
             z-index: 1;
           }
           #nav h4:hover {
-            color: black !important;
+            color:#000 !important;
           }
-          #nav h4:after {
-            content: "";
-            display: block;
-            height: 1px;
-            position: absolute;
-            bottom: 0;
-            right: 1.25rem;
-            left: 1.25rem;
-            background-color: #9a58d0;
-            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            transform-origin: bottom center;
-            z-index: -1;
-          }
-          #nav h4:hover:after {
-            right: 0;
-            left: 0;
-            height: 100%;
-          }
+          #nav h4 {
+    position: relative;
+    display: block;
+    margin: 20px;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    z-index: 1;
+    &:after {
+      content: '';
+      display: block;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      right: 1.25rem;
+      left: 1.25rem;
+      background-color: #9a58d0;
+      transition: all .3s cubic-bezier(.2, 0, 0, 1);
+      transform-origin: bottom center;
+      z-index: -1;
+    }
+    &:hover {
+      color: black!important;
+      &:after {
+        right: 0;
+        left: 0;
+        height: 100%;
+      }
+    }
+  }  
           video {
             height: 100vh;
             width: 100vw;
@@ -189,7 +255,8 @@ const Save = () => {
             
           }
           #page1 h1 {
-            font-size: 105px;
+        
+            font-size: 90px;
             font-weight: 900;
             position: relative;
           }

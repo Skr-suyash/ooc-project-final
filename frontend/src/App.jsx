@@ -9,6 +9,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cleaning from "./Pages/Cleaning.jsx";
 import Beauty from "./Pages/Beauty.jsx";
+import ContactUs from "./Pages/Contact.jsx";
+import About from "./Pages/About.jsx";
 // Define your routes 
 const router = createBrowserRouter([
   {
@@ -31,10 +33,14 @@ const router = createBrowserRouter([
     path: "/beauty",
     element: <Beauty />,
   },
-  // {
-  //   path: "/plumber",
-  //   element: <Plumber />,
-  // },
+  {
+    path: "/contact",
+    element: <ContactUs />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
 
   {
     path: "*",

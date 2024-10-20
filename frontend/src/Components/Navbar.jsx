@@ -4,20 +4,20 @@ import "./Navbar.css"; // Import the CSS file
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setIsScrolled(window.scrollY > 0);
-  //   };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,12 +26,9 @@ const Navbar = () => {
   return (
     <>
       {/* Responsive bar for mobile view */}
-      <div className="responsive-bar">
+      <div className="responsive-bar" >
         <div className="logo">
-          <img
-            src="https://img.freepik.com/premium-vector/network-team-icon-logo-illustration_1090394-99802.jpg?w=996"
-            alt="logo"
-          />
+          <img src=".\src\assets\Pro.jpeg" alt="logo" />
         </div>
         <div className="menu" onClick={toggleMenu}>
           <h4>Menu</h4>
@@ -41,10 +38,7 @@ const Navbar = () => {
       {/* Main navigation */}
       <nav className={isScrolled ? "black" : ""}>
         <div className="logo">
-          <img
-            src=".\src\assets\WhatsApp Image 2024-10-20 at 5.09.54 AM (1).jpeg"
-            alt="logo"
-          />
+          <img src=".\src\assets\Pro.jpeg" alt="logo" />
         </div>
         <ul className={isMenuOpen ? "active" : ""}>
           <li>
@@ -58,7 +52,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a href="#">Contact Us</a>
+            <a href="/contact">Contact Us</a>
           </li>
 
           {isAuthenticated ? (
