@@ -58,7 +58,7 @@ const Navbar = () => {
           {isAuthenticated ? (
             <li style={{ marginLeft: "20%" }}>
               <button
-                className="items-end text-white bg-purple-500 hover:bg-purple-8=600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
+                className="items-end text-white bg-purple-500 hover:bg-purple-8=600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 "
                 onClick={() => logout({ returnTo: window.location.origin })}
                 style={{ marginBottom: "20px" }}
               >
@@ -68,7 +68,7 @@ const Navbar = () => {
           ) : (
             <li style={{ marginLeft: "20%" }}>
               <button
-                className="items-end text-white bg-purple-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="items-end text-white bg-purple-500 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-blue-800"
                 onClick={() => loginWithRedirect()}
                 style={{ marginBottom: "20px" }}
               >

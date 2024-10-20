@@ -33,6 +33,23 @@ const Save = () => {
         scrub: 2,
       },
     });
+    gsap.to("#serve-head", {
+      scale:1.2,
+      x:290,
+      duration:1,
+      opacity:100,
+      scale:1.1,
+      fontWeight:600,
+      scrollTrigger:{
+        trigger: "#main",
+        scroller: "body",
+        start: "top -5%",
+        end: "top -70%",
+        scrub:1,
+
+      }
+
+    })
   }, []);
   useEffect(() => {
     if (isAuthenticated) {
@@ -71,7 +88,7 @@ const Save = () => {
         ) : (
           <h3>
             <button
-              className="items-end text-white bg-purple-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="items-end text-white bg-purple-500 hover:bg-purple-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 p-30"
               onClick={() => loginWithRedirect()}
               style={{ marginBottom: "20px" }}
             >
@@ -139,11 +156,14 @@ const Save = () => {
           </div>
           <div id="page3">
             <div id="ad">
-              <img
+              <a href="/cleaning"><img
                 src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1698216901117-d92940.jpeg"
                 alt="Ad"
-              />
+              /></a>
             </div>
+          </div>
+          <div id="page4">
+            
           </div>
         </div>
       </div>
@@ -178,6 +198,9 @@ const Save = () => {
           }
           #nav-logo {
             height: 4.5vw;
+            border-radius: 10%;
+            margin-top:5px;
+
           }
           #profile {
             align-self: right;
@@ -231,6 +254,13 @@ const Save = () => {
       }
     }
   }  
+          #nav h3{
+            margin-left:250px;
+            margin-top:20px;
+          }
+          #profile{
+            margin-top:15px;
+          }  
           video {
             height: 100vh;
             width: 100vw;
@@ -290,8 +320,9 @@ const Save = () => {
             position: absolute;
             z-index: 1;
             margin-bottom: 40px;
-            margin-left: 250px;
+            
             font-size: 50px;
+            font-weight:500;
           }
           .center {
             align-items: center;
@@ -342,6 +373,28 @@ const Save = () => {
             color: white;
           }
           #page3{
+            height:100%;
+            width:100%;
+          }  
+          #ad{
+            display:flex;
+            margin-left:150px;
+            width:80%;
+            border:2px solid black;
+            
+          } 
+          #ad {
+          overflow: hidden;
+          }
+
+          #ad{
+            transition: transform 0.5s ease;
+          }
+
+          #ad:hover {
+            transform: scale(1.05);
+          }  
+          #page4{
             height:100%;
             width:100%;
           }  
