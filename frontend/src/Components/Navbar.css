@@ -35,7 +35,7 @@ nav .logo img {
 }
 
 nav.black .logo img {
-  height: 60px;
+  height: 60px; /* Adjusted logo size when scrolled */
 }
 
 nav > ul {
@@ -66,7 +66,7 @@ nav > ul > li > a:hover {
 
 nav.black > ul > li > a {
   color: #fff;
-  line-height: 60px;
+  line-height: 60px; /* Adjusted line height when scrolled */
 }
 
 section.sec1 {
@@ -105,7 +105,7 @@ section.sec2 {
 
   .responsive-bar .logo img {
     float: left;
-    height: 50px;
+    height: 50px; /* Adjusted logo size in responsive bar */
   }
 
   .responsive-bar .menu h4 {
@@ -119,46 +119,46 @@ section.sec2 {
   }
 
   nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
 
   nav.black {
-    background: #262626;
-    height: 60px;
+    background: #262626; /* Black background in mobile when scrolled */
+    height: 60px; /* Adjusted height in mobile view */
   }
 
   nav .logo {
-    display: none;
+    display: none; /* Hide desktop logo in mobile view */
   }
 
   nav ul {
     position: absolute;
     width: 100%;
-    top: 60px;
+    top: 60px; /* Position below responsive bar */
     left: 0;
-    background: #262626;
+    background: #262626; /* Background for mobile menu */
     float: none;
     display: none;
     z-index: 2; /* Ensures the menu is above other elements */
   }
 
   nav ul.active {
-    display: block;
+    display: block; /* Show menu when active */
   }
 
   nav ul li {
-    width: 100%;
+    width: 100%; /* Full width for mobile menu items */
   }
 
   nav ul li a {
     display: block;
     width: 100%;
     text-align: center;
-    line-height: 30px !important;
-    color: #fff;
+    line-height: 30px !important; /* Ensure consistency in line height */
+    color: #fff; /* White text in mobile menu */
   }
 
   /* Added styles for responsive menu */

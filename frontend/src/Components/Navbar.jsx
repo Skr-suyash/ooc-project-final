@@ -4,24 +4,20 @@ import "./Navbar.css"; // Import the CSS file
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 0);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,13 +48,13 @@ const Navbar = () => {
         </div>
         <ul className={isMenuOpen ? "active" : ""}>
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">About Us</a>
+            <a href="/about">About Us</a>
           </li>
           <li>
-            <a href="#">Portfolio</a>
+            <a href="/form">Register Form</a>
           </li>
           <li>
             <a href="#">Services</a>
@@ -70,7 +66,7 @@ const Navbar = () => {
           {isAuthenticated ? (
             <li style={{ marginLeft: "20%" }}>
               <button
-                className=" items-end	 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="items-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 onClick={() => logout({ returnTo: window.location.origin })}
                 style={{ marginLeft: "20px", marginBottom: "20px" }}
               >
@@ -80,7 +76,7 @@ const Navbar = () => {
           ) : (
             <li style={{ marginLeft: "20%" }}>
               <button
-                className=" items-end	 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="items-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 onClick={() => loginWithRedirect()}
                 style={{ marginLeft: "20px", marginBottom: "20px" }}
               >
@@ -88,10 +84,11 @@ const Navbar = () => {
               </button>
             </li>
           )}
+          {/* Uncomment if you want to display user avatar */}
           {/* {isAuthenticated && (
             <li style={{ marginLeft: "20%" }}>
               <img
-                className="w-10 h-10 rounded-full "
+                className="w-10 h-10 rounded-full"
                 src={user.picture}
                 alt="Rounded avatar"
                 style={{ marginTop: "10px" }}
