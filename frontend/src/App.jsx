@@ -12,6 +12,8 @@ import Professional_Dashboard from './Pages/Professional_Dashboard.jsx';
 import Beauty from "./Pages/Beauty.jsx";
 import ContactUs from "./Pages/Contact.jsx";
 import About from "./Pages/About.jsx";
+import Confirm from "./Pages/Confirm.jsx";
+import ProConfirm from "./Pages/ProConfirm.jsx";
 // Define your routes 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
   {
     path: "/professional-dashboard",
     element: <Professional_Dashboard />,
+  },
+  {
+    path: "/confirm",
+    element: <Confirm />,
+  },
+  {
+    path: "/pro-confirm",
+    element: <ProConfirm />,
   },
 
   {

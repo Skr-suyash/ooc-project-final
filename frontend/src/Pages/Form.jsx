@@ -25,8 +25,8 @@ export default function Forms() {
     phone: "",
     email: "",
     city: "",
-    type: "Professional",
-    role: "Women's Beauty",
+    type: "Professional", // Default selection
+    role: "Women's Beauty", // Default role for professional
   });
 
   const navigate = useNavigate();
@@ -41,33 +41,43 @@ export default function Forms() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await fetch(
-        "http://localhost:8000/professional-submit",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      let apiUrl = "";
+
+      if (formData.type === "Professional") {
+        // API URL for professionals
+        apiUrl = "http://localhost:8000/professional-submit";
+      } else if (formData.type === "Customer") {
+        // API URL for customers
+        apiUrl = "http://localhost:8000/customer-submit";
+      }
+
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (!response.ok) throw new Error("Network response was not ok");
 
       const result = await response.json();
       console.log("Form submitted successfully:", result);
 
-      // Optionally reset form fields
+      // Optionally reset form fields after successful submission
       setFormData({
         name: "",
         phone: "",
         email: "",
         city: "",
-        type: "Professional",
-        role: "",
+        type: "Professional", // Reset type to default
+        role: "Women's Beauty", // Reset role to default
       });
-      // navigate("/");
+
+      // Optionally navigate to a success or home page
+      // navigate("/success");
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -105,6 +115,7 @@ export default function Forms() {
                 required
               />
             </div>
+
             <div>
               <label
                 htmlFor="phone"
@@ -121,6 +132,7 @@ export default function Forms() {
                 required
               />
             </div>
+
             <div>
               <label
                 htmlFor="email"
@@ -137,6 +149,7 @@ export default function Forms() {
                 required
               />
             </div>
+
             <div>
               <label
                 htmlFor="city"
@@ -153,6 +166,7 @@ export default function Forms() {
                 required
               />
             </div>
+
             <div>
               <label
                 htmlFor="type"
@@ -174,6 +188,8 @@ export default function Forms() {
                 ))}
               </select>
             </div>
+
+            {/* Show role selection only for Professional */}
             {formData.type !== "Customer" && (
               <div>
                 <label
@@ -184,7 +200,7 @@ export default function Forms() {
                 </label>
                 <select
                   name="role"
-                  value={formData.role} // Added value for controlled component
+                  value={formData.role} // For controlled component
                   onChange={handleInputChange}
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   required
