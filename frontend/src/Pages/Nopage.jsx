@@ -12,6 +12,7 @@ const Nopage =()=> {
               fontSize: "5rem",
               textAlign: "center",
               color: "aqua",
+              marginTop: "4em",
               WebkitTextStrokeWidth: "1px",
               WebkitTextStrokeColor: "black",
             }}

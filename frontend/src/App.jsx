@@ -8,6 +8,7 @@ import Electrician from "./Pages/Electrician.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cleaning from "./Pages/Cleaning.jsx";
+import Professional_Dashboard from './Pages/Professional_Dashboard.jsx';
 import Beauty from "./Pages/Beauty.jsx";
 import ContactUs from "./Pages/Contact.jsx";
 import About from "./Pages/About.jsx";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+  },
+  {
+    path: "/professional-dashboard",
+    element: <Professional_Dashboard />,
   },
 
   {
