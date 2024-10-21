@@ -1,7 +1,7 @@
-**Title**
-PickAPro - A websites that makes connecting with professionals really easy.
+### PickAPro ### 
+- A website that makes connecting with professionals really easy.
 
-**Team**
+### Team ###
 Name - Error404
 Members - 
 1. Suyash Kumar (IT 1st Year)
@@ -9,7 +9,7 @@ Members -
 3. Varun Pandey (IT 1st Year)
 4. Kunal Khandelwal (IT 1st Year)
 
-**Installation Instructions**
+### Installation Instructions ###
 
 *Prerequisites* - You should have NodeJS, MongoDB(local version) installed on your system.
 
@@ -25,7 +25,7 @@ Members -
 5. Frontend will run on 5173
 6. Go to http://localhost:5173/
 
-**Technologies Used**
+### Technologies Used ###
 1. REACT - Frontend Framework
 2. MongoDB - NoSQL Database in the Backend
 3. NodeJS - Backend
